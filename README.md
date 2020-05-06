@@ -25,6 +25,18 @@ docker run -it xxxx/xxxx /bin/bash
 sqlplus # error
 ```
 
+## 代替手法
+
+oracle instant clientを入れる方法（sqlplusを利用できるようにする方法）は上記のように、通常の手法だと厳しい。
+
+ただし以下の「4.) Running a fat Client on the Raspberry Pi」をみると、x86-platformをエミュレートできるExaGear Desktopなどを入れることで、sqlplus等をいれて動かせたとのこと。
+https://blog.dbi-services.com/running-the-oracle-client-on-a-raspberry-pi/
+
+またsqlclなどの軽量なクライアントは、普通にraspi上でも動くとのこと。
+
+さらにjavaを用いる場合は、jdbc（java実装のodbc driver）があり、javaが動くプラットフォームならoracle dbに繋げると思われる。raspi上でもjavaは動くので、java用いてる場合、raspiからでもおそらく問題なくoracleに繋げる。他の言語の場合は（正確にはjvmで動く言語ではない場合は）、oracle instant clientなどのodbc driverが必要になり、raspi上でその言語から直接oracle dbに繋ぐことができない（該当言語からsqlclなどを呼び出して用いれば別だと思うが）。
+https://armadillo.atmark-techno.com/forum/armadillo/1404
+https://www.oracle.com/technetwork/jp/content/0127-1330-db-middleware-297515-ja.pdf
 
 ## 参考情報
 
